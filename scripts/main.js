@@ -29,11 +29,13 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection == "scissors" && computerSelection == "Paper") {
         return ("You Win! Scissors beats Paper");
     } else if (playerSelection == "scissors" && computerSelection == "Rock") {
-        return ("You Lose! Rock beats Scissors")
+        return ("You Lose! Rock beats Scissors");
+    } else {
+        return ("You didn't choose a valid option, please hit F5 and try again")
     }
 }
 
-const input = prompt("Make a choice:");
+const input = prompt("Choose your weapon (rock, paper or scissors): ");
 const playerSelection = input.toLowerCase();
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection)); 
