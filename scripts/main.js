@@ -1,59 +1,59 @@
-
 let playerScore = 0;
 let computerScore = 0;
 
+// Game logic
 function playRound(playerSelection, computerSelection) {
     /* Rock */
     if (playerSelection == "rock" && computerSelection == "Rock") {
-        return ("You Tied! Rock can't beat a Rock");
+        return "You Tied! Rock can't beat a Rock";
     } else if (playerSelection == "rock" && computerSelection == "Scissors") {
         ++playerScore
-        return ("You Win! Rock beats Scissors");
+        return "You Win! Rock beats Scissors";
     } else if (playerSelection == "rock" && computerSelection == "Paper") {
         ++computerScore
-        return ("You Lose! Paper beats Rock");
+        return "You Lose! Paper beats Rock";
     }
     /* Paper */
     if (playerSelection == "paper" && computerSelection == "Paper") {
-        return ("You Tied! Paper can't beat Paper");
+        return "You Tied! Paper can't beat Paper";
     } else if (playerSelection == "paper" && computerSelection == "Scissors") {
         ++computerScore
-        return ("You Lose! Scissors beats Paper");
+        return "You Lose! Scissors beats Paper";
     } else if (playerSelection == "paper" && computerSelection == "Rock") {
         ++playerScore
-        return ("You Win! Paper beats the Rock");
+        return "You Win! Paper beats the Rock";
     }
     /* Scissors */
     if (playerSelection == "scissors" && computerSelection == "Scissors") {
-        return ("You Tied! Scissors can't beat Scissors");
+        return "You Tied! Scissors can't beat Scissors";
     } else if (playerSelection == "scissors" && computerSelection == "Paper") {
         ++playerScore
         return ("You Win! Scissors beats Paper");
     } else if (playerSelection == "scissors" && computerSelection == "Rock") {
         ++computerScore
-        return ("You Lose! Rock beats Scissors") ;
+        return "You Lose! Rock beats Scissors" ;
     /* Not a valid option */
     } else {
-        return ("You didn't choose a valid option, please hit F5 and try again")
+        return "You didn't choose a valid option, please hit F5 and try again"
     }
 }
 
-
+// Computer randomize
 function computerPlay() {
     let guess = Math.floor(Math.random() * 3);
     if (guess === 0) {
-        return ("Rock");
+        return "Rock";
     } else if (guess === 1) {
-        return ("Paper");
+        return "Paper";
     } else {
-        return ("Scissors");
+        return "Scissors";
     }
 }
-
+// A game function to play 5 rounds and return the final score
 function game() {
     for (let i=0;i<5;i++) {
-        let playerSelection = prompt("Choose your weapon (rock, paper or scissors): ").toLowerCase();
-        let computerSelection = computerPlay();
+        const playerSelection = prompt("Choose your weapon (rock, paper or scissors): ").toLowerCase();
+        const computerSelection = computerPlay();
         console.log(playRound(playerSelection, computerSelection)); 
     }
     if (computerScore < playerScore) {
